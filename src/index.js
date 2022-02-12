@@ -1,3 +1,9 @@
 import './assets/styles/style.css';
 
-console.log("hello");
+import { dropDownMenu } from './dropDownMenu';
+
+const content = document.getElementById('content');
+
+const mainMenu = dropDownMenu('main', ['Home', 'About', 'Buy', 'Sell', 'Contact Us']);
+content.append(mainMenu);
+
