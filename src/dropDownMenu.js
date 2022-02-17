@@ -8,16 +8,18 @@ export const dropDownMenu = (name, optionsArr, icon)=>{
     menu.append(menuButton);
     _createMenuItems(optionsArr, menu);
 
-    menu.addEventListener('click', toggleMenu);
+    menuButton.addEventListener('mouseenter', openMenu); //instead of toggleMenu make open menu and close menu
+    menu.addEventListener('mouseleave', closeMenu);
 
     return menu;
 };
 
 const _createMenuItems = (optionsArr, menu)=>{
     const menuItems = div('menu-items', false);
+    menuItems.classList.add('hidden-menu-items');
+    
     optionsArr.forEach((option)=>{
         const optionElement = div(option, true);
-        optionElement.classList.add('menu-item', 'hidden-menu-item');
        
         const link = a('dropdown-link', false, option, '#');
         optionElement.append(link);
@@ -26,20 +28,22 @@ const _createMenuItems = (optionsArr, menu)=>{
     menu.append(menuItems);
 }
 
-export const toggleMenu = (e)=>{
+export const openMenu = (e)=>{
     
     const menu = e.target.parentElement;
-    const menuItems = [...menu.getElementsByClassName('menu-item')];
+    const menuItems = menu.getElementsByClassName('hidden-menu-items')[0];
 
-    menuItems.forEach((menuItem)=>{
-        if(menuItem.classList.contains('hidden-menu-item')){
-            menuItem.classList.remove('hidden-menu-item');
-            menuItem.classList.add('visible-menu-item');
-        } else {
-            menuItem.classList.remove('visible-menu-item');
-            menuItem.classList.add('hidden-menu-item');  
-        }
-    });
+    menuItems.classList.remove('hidden-menu-items');
+    menuItems.classList.add('visible-menu-items');
+    
+}
+
+export const closeMenu = (e)=>{
+    const menu = e.target.parentElement;
+    const menuItems = menu.getElementsByClassName('visible-menu-items')[0];
+
+    menuItems.classList.remove('visible-menu-items');
+    menuItems.classList.add('hidden-menu-items');
 }
 
 

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Cinzel;
+    src: url('/src/assets/fonts/Cinzel/Cinzel-VariableFont_wght.ttf');
+  }
+
 body {
     background: black;
     color: white;
@@ -7,13 +12,14 @@ body {
     gap: 200px;
     justify-content: center;
     height: 100vh;
+    background: rgb(68, 68, 68);
     
 }
 
 .dropdown {
-    text-align: center;
+    /* text-align: center;
     width: 200px;
-    height: auto;
+    height: auto; */
 }
 
 .dropdown > button {
@@ -21,15 +27,46 @@ body {
 }
 
 .menu-items {
-    margin-top: 5px;
-    position: relative;
+    
 }
 
-.hidden-menu-item {
+.hidden-menu-items {
     display: none;
 }
 
-.visible-menu-item {
+.visible-menu-items {
     display: block;
+}
+/* hide the menu and not the invidual items */
+
+.rs3-dropdown-theme {
+    height: 150px;
+}
+
+.rs3-dropdown-theme button {
+    text-align: center;
+    font-family: Cinzel;
+    height: 70px;
+    font-size: 24px;
+    padding: 20px 10px;
+    border: 1px solid #e1bb34;
+    background: darkblue;
+    color: #e1bb34;
+}
+
+.rs3-dropdown-theme > .menu-items {
+    margin-top: 5px;
+    text-align: center;
+    background: darkblue;
+    position: relative;
+}
+
+.rs3-dropdown-theme  a {
+    text-decoration: none;
+    color: white;
+}
+
+.rs3-dropdown-theme a:hover {
+    color: #e1bb34;
 }
 
