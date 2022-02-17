@@ -1,28 +1,33 @@
 import { div, a, button} from './dom';
 
-export const dropDownMenu = (name, optionsArr)=>{
+export const dropDownMenu = (name, optionsArr, icon)=>{
     
     const menu = div(name, true);
-    const menuButton = button('menu-button', false, '☰');
+    const menuButton = button('menu-button', false, icon);
     menu.classList.add('dropdown');
     menu.append(menuButton);
-    _createOptions(optionsArr, menu);
+    _createMenuItems(optionsArr, menu);
+
+    menu.addEventListener('click', toggleMenu);
 
     return menu;
 };
 
-const _createOptions = (optionsArr, menu)=>{
+const _createMenuItems = (optionsArr, menu)=>{
+    const menuItems = div('menu-items', false);
     optionsArr.forEach((option)=>{
         const optionElement = div(option, true);
         optionElement.classList.add('menu-item', 'hidden-menu-item');
        
         const link = a('dropdown-link', false, option, '#');
         optionElement.append(link);
-        menu.append(optionElement);
+        menuItems.append(optionElement);
     });
+    menu.append(menuItems);
 }
 
 export const toggleMenu = (e)=>{
+    
     const menu = e.target.parentElement;
     const menuItems = [...menu.getElementsByClassName('menu-item')];
 
@@ -37,5 +42,4 @@ export const toggleMenu = (e)=>{
     });
 }
 
-export const getDropdownMenuButton = (menuId)=>
-    document.getElementById(menuId).getElementsByClassName('menu-button')[0];
+
