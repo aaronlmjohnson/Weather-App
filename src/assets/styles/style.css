@@ -9,7 +9,7 @@ body {
 }
 #content {
     display: flex;
-    gap: 200px;
+    gap: 5px;
     justify-content: center;
     height: 100vh;
     background: rgb(68, 68, 68);
@@ -54,11 +54,22 @@ body {
     color: #e1bb34;
 }
 
+.rs3-dropdown-theme button:hover {
+    background: black;
+    color: white;
+}
+
 .rs3-dropdown-theme > .menu-items {
-    margin-top: 5px;
     text-align: center;
     background: darkblue;
     position: relative;
+    border-right: 1px solid #e1bb34;
+    border-left: 1px solid #e1bb34;
+    
+}
+
+.rs3-dropdown-theme  .menu-item {
+    border-bottom: 1px solid #e1bb34;
 }
 
 .rs3-dropdown-theme  a {

@@ -19,8 +19,8 @@ const _createMenuItems = (optionsArr, menu)=>{
     menuItems.classList.add('hidden-menu-items');
     
     optionsArr.forEach((option)=>{
-        const optionElement = div(option, true);
-       
+        const optionElement = div('menu-item', false);
+
         const link = a('dropdown-link', false, option, '#');
         optionElement.append(link);
         menuItems.append(optionElement);
