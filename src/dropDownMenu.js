@@ -3,6 +3,7 @@ import { div, a, button} from './dom';
 export const dropDownMenu = (name, optionsArr, icon)=>{
     
     const menu = div(name, true);
+    menu.classList.add('rs3-dropdown-theme');
     const menuButton = button('menu-button', false, icon);
     menu.classList.add('dropdown');
     menu.append(menuButton);
