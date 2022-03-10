@@ -1,28 +1,38 @@
 import './assets/styles/style.css';
-
-import { dropDownMenu} from './dropDownMenu';
-import { navBar } from './navBar';
+import { button } from './dom';
 
 const content = document.getElementById('content');
-//navBar.addLinks(['Home', 'Account', 'Contact Us', 'Game Guide Menu']);
+const img = document.querySelector('img');
+const giphyPromise = fetch('https://api.giphy.com/v1/gifs/translate?api_key=JSxhrbdc3Pc1hEh4aEifqEwEEmWvVQmq&s=cats', {mode: 'cors'});
 
-//const mainMenu = dropDownMenu('game-guide-menu', ['Wiki', 'Beginners\' Guide', 'Skills', 'Combat'], 'Game Guide');
+const consoleJsonOutput = (response)=>{
+    return response.json();
+};
 
-navBar.addDropDownLink('account', ['Login', 'Sign Up', 'Recover Account'], 'Account');
-navBar.addDropDownLink('game-guide-menu', ['Wiki', 'Beginners\' Guide', 'Skills', 'Combat'], 'Game Guide');
-navBar.addDropDownLink('community', ['Forums', 'Hiscores', 'Guilds', 'Friend Mode'], 'Community');
-navBar.addDropDownLink('shop', ['Membership', 'Bonds', 'Shop'], 'Shop');
+const  giphyPromiseResponse = giphyPromise.then(consoleJsonOutput);
+const  addUrlToImgSrc = (response)=> img.src = response.data.images.original.url;
 
-// const accountMenu = dropDownMenu('account', ['Login', 'Sign-Up', 'Manage', 'Delete'], 'Account');
+giphyPromiseResponse.then(addUrlToImgSrc);
+
+const newImgBtn = button('new-image', true, 'New Image');
+
+content.append(newImgBtn);
+
+const getNewImage = (e)=>{
+    const giphyPromise = fetch('https://api.giphy.com/v1/gifs/translate?api_key=JSxhrbdc3Pc1hEh4aEifqEwEEmWvVQmq&s=cats', {mode: 'cors'});
+    giphyPromise.then(consoleJsonOutput).then(addUrlToImgSrc);
+}
+
+newImgBtn.addEventListener('click', getNewImage);
 
 
 
-// accountMenu.classList.add('rs3-dropdown-theme');
 
 
-// content.append(mainMenu);
-// content.append(accountMenu);
-content.append(navBar.get());
+
+
+
+
 
 
 
