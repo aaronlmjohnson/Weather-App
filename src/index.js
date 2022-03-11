@@ -3,45 +3,46 @@ import { button, form} from './dom';
 
 const content = document.getElementById('content');
 const img = document.querySelector('img');
-const defaultGifSearch = 'cats'
-const giphyPromise = fetch(`https://api.giphy.com/v1/gifs/translate?api_key=JSxhrbdc3Pc1hEh4aEifqEwEEmWvVQmq&s=${defaultGifSearch}`, {mode: 'cors'});
+let currentSearch = 'cats'
 
-const getGiphyJson = (response)=>{
-    return response.json();
-};
+const getGifs = async (search)=>{
+    const url = `https://api.giphy.com/v1/gifs/translate?api_key=JSxhrbdc3Pc1hEh4aEifqEwEEmWvVQmq&s=${search}`;
+    const response =  await fetch(url, {mode: 'cors'});
+    const gifData = await response.json();
 
-const  giphyPromiseResponse = giphyPromise.then(getGiphyJson);
-
-const  addUrlToImgSrc = (response)=> img.src = response.data.images.original.url;
-const  outputGiphyData = (response)=> console.log(response.data);
-
-giphyPromiseResponse.then(outputGiphyData);
-giphyPromiseResponse.then(addUrlToImgSrc);
-
-
-const newImgBtn = button('new-image', true, 'New Image');
-const searchForNewGif = form("", "get", 'search-for-gif');
-searchForNewGif.addInput('gif-search', 'search', '');
-searchForNewGif.addInput('submit', 'submit');
-
-
-
-content.append(newImgBtn);
-content.append(searchForNewGif.get());
-
-const getNewImage = (e)=>{
-    const giphyPromise = fetch(`https://api.giphy.com/v1/gifs/translate?api_key=JSxhrbdc3Pc1hEh4aEifqEwEEmWvVQmq&s=${defaultGifSearch}`, {mode: 'cors'});
-    giphyPromise.then(getGiphyJson).then(addUrlToImgSrc);
+    img.src = gifData.data.images.original.url;  
 }
 
-newImgBtn.addEventListener('click', getNewImage);
+const getNewImage = (e)=>{
+    getGifs(currentSearch);
+}
 
-searchForNewGif.get().addEventListener('submit', (e)=>{
+const searchForGif = (e)=>{
     e.preventDefault();
-    const gifSearchValue = document.getElementById('gif-search').value;
-    const giphyPromise = fetch(`https://api.giphy.com/v1/gifs/translate?api_key=JSxhrbdc3Pc1hEh4aEifqEwEEmWvVQmq&s=${gifSearchValue}`, {mode: 'cors'});
-    giphyPromise.then(getGiphyJson).then(addUrlToImgSrc);
-});
+    currentSearch = document.getElementById('gif-search').value;
+    getGifs(currentSearch);
+};
+
+const pageStructure = (()=>{
+    const newImgBtn = button('new-image', true, 'New Image');
+    const searchForNewGif = form("", "get", 'search-for-gif');
+
+    searchForNewGif.addInput('gif-search', 'search', '');
+    searchForNewGif.addInput('submit', 'submit');
+
+    content.append(newImgBtn);
+    content.append(searchForNewGif.get());
+
+    newImgBtn.addEventListener('click', getNewImage);
+
+    searchForNewGif.get().addEventListener('submit', searchForGif); 
+})();
+
+getGifs(currentSearch);
+
+
+
+
 
 
 
