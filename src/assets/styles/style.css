@@ -50,14 +50,7 @@ table {
     box-sizing: border-box;
 }
 
-
 /******************************************/
-
-
-@font-face {
-    font-family: Cinzel;
-    src: url('/src/assets/fonts/Cinzel/Cinzel-VariableFont_wght.ttf');
-  }
 
 body {
     background: white;  
@@ -66,75 +59,3 @@ body {
 #content {
     
 }
-
-
-.dropdown > button {
-    border: none;
-}
-
-.hidden-menu-items {
-    display: none;
-}
-
-.visible-menu-items {
-    display: block;
-}
-
-#navbar {
-    display: grid;
-    grid-template-columns: auto 600px auto;
-    font-size: 24px;
-    background: darkblue;
-}
-
-.nav-links{
-    display: grid;
-    grid-column: 2 / span 1;    
-    grid-template-columns: repeat(4,1fr);
-}
-
-.rs3-dropdown-theme.dropdown {
-    height: 100px;
-}
-
-
-
-.rs3-dropdown-theme button {
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    font-family: Cinzel;
-    font-size: 24px;
-    border: 1px solid #e1bb34;
-    background: darkblue;
-    color: #e1bb34;
-}
-
-.rs3-dropdown-theme button:hover {
-    background: black;
-    color: white;
-}
-
-.rs3-dropdown-theme > .menu-items {
-    text-align: center;
-    width: 100%;
-    background: darkblue;
-    position: relative;
-    border-right: 1px solid #e1bb34;
-    border-left: 1px solid #e1bb34;
-    
-}
-
-.rs3-dropdown-theme  .menu-item {
-    border-bottom: 1px solid #e1bb34;
-}
-
-.rs3-dropdown-theme  a {
-    text-decoration: none;
-    color: white;
-}
-
-.rs3-dropdown-theme a:hover {
-    color: #e1bb34;
-}
-
