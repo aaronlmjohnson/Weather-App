@@ -1,6 +1,6 @@
 import { div, paragraph } from "./dom";
 
-const weatherInfoDiv = ()=>{
+const weatherInfoDiv = (weatherInfoObj)=>{
     const wiDiv = div('weather-info', false);
 
     const createInfoDivs = (()=>{
