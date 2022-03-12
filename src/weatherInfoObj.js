@@ -1,5 +1,7 @@
-const weatherInfoObj = async (response)=> {
-    const weatherJson = await response;
+import weather from "./weather";
+
+const weatherInfoObj = async (city, country, state)=> {
+    const weatherJson = await weather.dataForCity(city, country, state);
 
     console.log(weatherJson);
     console.log(weatherJson.dt);//time
