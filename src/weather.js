@@ -2,7 +2,6 @@ const weather = (()=>{
     const dataForCity = async (city, country, state='')=>{
         const units = 'imperial';
         const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}${state ? ',US-'+state : state},${country}&units=${units}&APPID=ecb293383b7ae05cbf77b63954466b3c`;
-        console.log(url);
         const response = await fetch(url, {mode: 'cors'});
         const weatherData = await response.json();
         return weatherData;

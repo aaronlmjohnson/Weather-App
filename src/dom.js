@@ -8,7 +8,7 @@ export const div = (name, unique)=> {
 export const paragraph = (name, unique, text)=>{
     const _element = document.createElement("p");
 
-    _classOrId(_element, name, unique);
+    //_classOrId(_element, name, unique);
     _element.textContent = text;   
     return _element;
 };
