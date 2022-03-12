@@ -6,7 +6,10 @@ import weatherInfoObj from "./weatherInfoObj";
 
 const weatherDiv = (city, country, state='')=>{
     const wDiv = div('weather', false);
-    const weatherObj = weatherInfoObj(city, country, state);
+
+    weatherInfoObj(city, country, state).then((data=>{
+        console.log(data);
+    }));
 
     const weatherInfo = weatherInfoDiv();
     const weatherIcon = div('weather-icon', false);

@@ -8,19 +8,24 @@ const weather = (()=>{
         return weatherData;
     }
 
-    const getConditions =  (weatherData) => weatherData.weather[0];
+    const getConditions =  (weatherData) => weatherData.weather[0].main;
     const getTemp = (weatherData) => weatherData.main;
     const getTimeOfRequest =  (weatherData) =>{
         const date = new Date(weatherData.dt * 1000);
-
-        return date.toLocaleString("en-US", {timeZoneName: "short"});
+        return date.toLocaleTimeString("en-US", {timeZoneName: "short"});
     }
+    const getHighTemp = (weatherData)=> weatherData.main.temp_max;
+    const getLowTemp = (weatherData)=> weatherData.main.temp_min;
+    const getCurrentTemp = (weatherData)=> weatherData.main.temp;
 
     return {
         dataForCity,
         getConditions,
         getTemp,
         getTimeOfRequest,
+        getHighTemp,
+        getLowTemp,
+        getCurrentTemp
     }
 })();
 
