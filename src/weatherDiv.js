@@ -15,7 +15,8 @@ const weatherDiv = (city, country, state='')=>{
     const _addContentToWeatherInfo = async ()=>{
         const weatherData = await weatherInfoObj(city, country, state);
         for(let data in weatherData) {
-            console.log(weatherData[data]);
+            const textElement = document.querySelector(`.${data}-text`);
+            textElement.append(weatherData[data]);
         }
     }
 
