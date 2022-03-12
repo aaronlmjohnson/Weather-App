@@ -1,0 +1,43 @@
+{
+    "coord": {
+      "lon": -94.1574,
+      "lat": 36.0626
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 268.44,
+      "feels_like": 263.9,
+      "temp_min": 267.7,
+      "temp_max": 268.89,
+      "pressure": 1027,
+      "humidity": 68
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3.09,
+      "deg": 330
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1647065173,
+    "sys": {
+      "type": 1,
+      "id": 4173,
+      "country": "US",
+      "sunrise": 1647088306,
+      "sunset": 1647130867
+    },
+    "timezone": -21600,
+    "id": 4110486,
+    "name": "Fayetteville",
+    "cod": 200
+  }
