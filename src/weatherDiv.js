@@ -1,14 +1,15 @@
 import { div } from "./dom";
 import weather from "./weather";
+import weatherInfoDiv from "./weatherInfoDiv";
 
 const weatherDiv = (city, country, state='')=>{
     const wDiv = div('weather', false);
     const weatherData = weather.dataForCity(city, country, state);
 
-    const weatherInfoDiv = div('weather-info', false);
+    const weatherInfo = weatherInfoDiv();
     const weatherIcon = div('weather-icon', false);
 
-    [weatherInfoDiv, weatherIcon].forEach(div => wDiv.append(div));
+    [weatherInfo, weatherIcon].forEach(div => wDiv.append(div));
     
 
     const _setWeatherInfo = async () =>{

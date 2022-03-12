@@ -8,7 +8,7 @@ const content = document.getElementById('content');
 
 const fayettevilleWeather = weatherDiv('Fayetteville', 'USA', 'AR');
 
-//content.append(fayettevilleWeather);
+content.append(fayettevilleWeather);
 
 // fayetteville.then((json) => { 
 //     console.log(weather.getConditions(json));
