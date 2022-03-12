@@ -20,7 +20,7 @@ const weather = (()=>{
         dataForCity,
         getConditions,
         getTemp,
-        getTimeOfRequest
+        getTimeOfRequest,
     }
 })();
 
