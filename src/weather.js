@@ -13,9 +13,9 @@ const weather = (()=>{
         const date = new Date(weatherData.dt * 1000);
         return date.toLocaleTimeString("en-US", {timeZoneName: "short"});
     }
-    const getHighTemp = (weatherData)=> weatherData.main.temp_max;
-    const getLowTemp = (weatherData)=> weatherData.main.temp_min;
-    const getCurrentTemp = (weatherData)=> weatherData.main.temp;
+    const getHighTemp = (weatherData)=> Math.floor(weatherData.main.temp_max);
+    const getLowTemp = (weatherData)=> Math.floor(weatherData.main.temp_min);
+    const getCurrentTemp = (weatherData)=> Math.floor(weatherData.main.temp);
 
     return {
         dataForCity,
