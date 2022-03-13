@@ -15,11 +15,15 @@ const weatherDiv = (city, country, state='')=>{
         const weatherData = await weatherInfoObj(city, country, state);
 
         for(let data in weatherData) {
-            const textElement = document.querySelector(`.${data}-text`);
-            let tempTypePrefix = '';
+            if(data === 'icon-url') continue;
 
+            const textElement = document.querySelector(`.${data}-text`);
+
+            //for dealing with temp highs and lows
+            let tempTypePrefix = '';
             if(data === 'temp-high' || data === 'temp-low') 
                 tempTypePrefix = data === 'temp-high' ? 'High ' : 'Low ';
+
             textElement.append(tempTypePrefix + weatherData[data]);
         } 
 
@@ -31,6 +35,9 @@ const weatherDiv = (city, country, state='')=>{
         const stateText = document.querySelector('.state-text').append(state);
         const countryText = document.querySelector('.country-text').append(country);
     }
+
+   
+
 
    
 

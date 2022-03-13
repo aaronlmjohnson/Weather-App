@@ -16,7 +16,8 @@ const weather = (()=>{
     const getHighTemp = (weatherData)=> Math.floor(weatherData.main.temp_max);
     const getLowTemp = (weatherData)=> Math.floor(weatherData.main.temp_min);
     const getCurrentTemp = (weatherData)=> Math.floor(weatherData.main.temp);
-
+    const getIcon = (weatherData) => weatherData.weather[0].icon;
+    
     return {
         dataForCity,
         getConditions,
@@ -24,7 +25,8 @@ const weather = (()=>{
         getTimeOfRequest,
         getHighTemp,
         getLowTemp,
-        getCurrentTemp
+        getCurrentTemp,
+        getIcon
     }
 })();
 
