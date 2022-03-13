@@ -48,17 +48,25 @@ table {
 }
 * {
     box-sizing: border-box;
+
 }
 
 /******************************************/
 
 body {
-    background: white;  
+    background: white;
+	color: black; 
 }
-/* *{
-	border: 1px solid black;
-} */
+
 
 #content {
-    
+	display: flex;
+	justify-content: center;
+	margin: 100px;
+}
+
+.weather {
+	border: 1px solid black;
+	width: 50%;
+	
 }

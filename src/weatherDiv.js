@@ -40,9 +40,6 @@ const weatherDiv = (city, country, state='')=>{
         wDiv.append(weatherIconDiv(url));
     }
 
-
-   
-
     _addContentToWeatherInfo();
     
     return wDiv;

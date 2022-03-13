@@ -3,7 +3,7 @@ import weatherDiv from './weatherDiv';
 
 const content = document.getElementById('content');
 
-const fayettevilleWeather = weatherDiv('Fayetteville', 'USA', 'AR');
+const fayettevilleWeather = weatherDiv('Fayetteville', 'US', 'AR');
 
 content.append(fayettevilleWeather);
 
