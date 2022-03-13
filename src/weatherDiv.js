@@ -11,9 +11,9 @@ const weatherDiv = (city, country, state='')=>{
 
     [weatherInfo, weatherIcon].forEach(div => wDiv.append(div));
     
-
     const _addContentToWeatherInfo = async ()=>{
         const weatherData = await weatherInfoObj(city, country, state);
+
         for(let data in weatherData) {
             const textElement = document.querySelector(`.${data}-text`);
             let tempTypePrefix = '';
@@ -21,10 +21,21 @@ const weatherDiv = (city, country, state='')=>{
             if(data === 'temp-high' || data === 'temp-low') 
                 tempTypePrefix = data === 'temp-high' ? 'High ' : 'Low ';
             textElement.append(tempTypePrefix + weatherData[data]);
-        }
+        } 
+
+        _addLocationToWeatherInfo();
     }
 
+    const _addLocationToWeatherInfo = ()=>{
+        const cityText= document.querySelector('.city-text').append(city);
+        const stateText = document.querySelector('.state-text').append(state);
+        const countryText = document.querySelector('.country-text').append(country);
+    }
+
+   
+
     _addContentToWeatherInfo();
+    
     return wDiv;
 }
 
