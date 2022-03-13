@@ -1,21 +1,21 @@
 import { div } from "./dom";
+import weatherIconDiv from "./weatherIconDiv";
 import weatherInfoDiv from "./weatherInfoDiv";
 import weatherInfoObj from "./weatherInfoObj";
 
 
 const weatherDiv = (city, country, state='')=>{
     const wDiv = div('weather', false);
-
-    const weatherInfo = weatherInfoDiv();
-    const weatherIcon = div('weather-icon', false);
-
-    [weatherInfo, weatherIcon].forEach(div => wDiv.append(div));
+    wDiv.append(weatherInfoDiv());
     
     const _addContentToWeatherInfo = async ()=>{
         const weatherData = await weatherInfoObj(city, country, state);
 
         for(let data in weatherData) {
-            if(data === 'icon-url') continue;
+            if(data === 'icon-url'){
+                _addIconToWeatherInfo(weatherData[data]);
+                continue;
+            } 
 
             const textElement = document.querySelector(`.${data}-text`);
 
@@ -36,7 +36,9 @@ const weatherDiv = (city, country, state='')=>{
         const countryText = document.querySelector('.country-text').append(country);
     }
 
-   
+    const _addIconToWeatherInfo = (url)=>{
+        wDiv.append(weatherIconDiv(url));
+    }
 
 
    
