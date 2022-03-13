@@ -4,7 +4,7 @@ const weatherInfoDiv = (weatherInfoObj)=>{
     const wiDiv = div('weather-info', false);
 
     const createInfoDivs = (()=>{
-        ['location', 'time', 'current-temp', 'condition', 'temp-high', 'temp-low', 'city', 'state', 'country'].forEach((name)=>{
+        ['location', 'time', 'current-temp', 'condition', 'temp-high', 'temp-low', 'location'].forEach((name)=>{
             const infoPara = div(name, false);
             infoPara.append(paragraph(`${name}-text`, false,''));
             wiDiv.append(infoPara);

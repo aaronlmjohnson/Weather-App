@@ -31,9 +31,8 @@ const weatherDiv = (city, country, state='')=>{
     }
 
     const _addLocationToWeatherInfo = ()=>{
-        const cityText= document.querySelector('.city-text').append(city);
-        const stateText = document.querySelector('.state-text').append(state);
-        const countryText = document.querySelector('.country-text').append(country);
+        const location = `${city}, ${state === '' ? country : state}`
+        document.querySelector('.location-text').append(location);
     }
 
     const _addIconToWeatherInfo = (url)=>{
