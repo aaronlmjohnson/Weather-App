@@ -5,6 +5,14 @@ export const div = (name, unique)=> {
     return _element;
 };
 
+export const img = (name, unique, src)=> {
+    const _element = document.createElement("img");
+    _classOrId(_element, name, unique);
+    _element.src = src;
+    
+    return _element;
+};
+
 export const paragraph = (name, unique, text)=>{
     const _element = document.createElement("p");
 
