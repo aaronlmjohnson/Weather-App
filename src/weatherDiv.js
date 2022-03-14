@@ -1,4 +1,4 @@
-import { div } from "./dom";
+import { div, header } from "./dom";
 import weatherIconDiv from "./weatherIconDiv";
 import weatherInfoDiv from "./weatherInfoDiv";
 import weatherInfoObj from "./weatherInfoObj";
@@ -7,7 +7,10 @@ import weatherInfoObj from "./weatherInfoObj";
 const weatherDiv = (city, country, state='')=>{
     const wDiv = div('weather', false);
     const locationAndTime = div('location-and-time', false);
+    locationAndTime.append(header(1, '', 'location-and-time-header', false));
+    wDiv.append(locationAndTime);
     wDiv.append(weatherInfoDiv());
+    
     
     const _addContentToWeatherInfo = async ()=>{
         const weatherData = await weatherInfoObj(city, country, state);
@@ -23,7 +26,7 @@ const weatherDiv = (city, country, state='')=>{
 
     const _addLocationAndTimeToWeatherInfo = (time)=>{
         const locationAndTime = `${city}, ${state === '' ? country : state} As of ${time}`;
-        document.querySelector('.location-and-time-text').append(locationAndTime);
+        document.querySelector('.location-and-time-header').append(locationAndTime);
     }
 
     const _addIconToWeatherInfo = (url)=>{
