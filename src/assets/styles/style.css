@@ -54,10 +54,11 @@ table {
 /******************************************/
 
 body {
-    background: white;
-	color: black; 
+	font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(-15deg,#8087df 20%,#2a2f75 60%,#00076e  90%);
+	background-size: auto 100vh;
+	color: white; 
 }
-
 
 #content {
 	display: flex;
@@ -66,29 +67,57 @@ body {
 }
 
 .weather {
-	border: 1px solid black;
+	background: #000000b6;
 	display: grid;
-	grid-template-rows: 1fr 8fr;
-	width: 50%;
+	grid-template-rows: 1fr 250px;
+	grid-template-columns: 1fr 1fr;
+	width: 40%;
 	padding: 0 10px;
 }
 
 .location-and-time {
 	grid-row: 1;
 	grid-column: span 2;
+	padding: 10px 0;
 }
 
 .weather-info {
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	grid-row: 2;
+	gap: 5px;
 }
 
 .weather-icon-container {
 	margin-left: auto;
-	width: 200px;
+	width: 100%;
 	grid-row: 2;
 }
-
+.weather-icon-container{
+	display: flex;
+	justify-content: center;
+}
 .weather-icon{
-	width: 100%
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+
+
+}
+.high-low {
+	display: flex;
+	gap: 10px;
+}
+
+.current-temp-text {
+	font-size: 6em;
+}
+
+.condition-text {
+	font-size: 2em;
+}
+
+.temp-high-text, .temp-low-text {
+	font-size: 1.5em;
 }
