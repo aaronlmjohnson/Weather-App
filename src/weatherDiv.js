@@ -6,26 +6,17 @@ import weatherInfoObj from "./weatherInfoObj";
 
 const weatherDiv = (city, country, state='')=>{
     const wDiv = div('weather', false);
+    const locationAndTime = div('location-and-time', false);
     wDiv.append(weatherInfoDiv());
     
     const _addContentToWeatherInfo = async ()=>{
         const weatherData = await weatherInfoObj(city, country, state);
-
-        for(let data in weatherData) {
-            if(data === 'icon-url'){
-                _addIconToWeatherInfo(weatherData[data]);
-                continue;
-            } 
-
-            const textElement = document.querySelector(`.${data}-text`);
-
-            //for dealing with temp highs and lows
-            let tempTypePrefix = '';
-            if(data === 'temp-high' || data === 'temp-low') 
-                tempTypePrefix = data === 'temp-high' ? 'High ' : 'Low ';
-
-            textElement.append(tempTypePrefix + weatherData[data]);
-        } 
+        console.log(weatherData.time)
+        
+        document.querySelector('.current-temp-text').append(weatherData.currentTemp);
+        document.querySelector('.condition-text').append(weatherData.condition);
+        document.querySelector('.temp-high-text').append(`High ${weatherData.tempHigh}`);
+        document.querySelector('.temp-low-text').append(`Low ${weatherData.tempLow}`);
 
         _addLocationToWeatherInfo();
     }

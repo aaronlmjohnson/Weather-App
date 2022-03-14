@@ -5,9 +5,9 @@ const weatherInfoObj = async (city, country, state)=> {
     weather.getIcon(weatherJson);
     return {
         'time': weather.getTimeOfRequest(weatherJson),
-        'current-temp': weather.getCurrentTemp(weatherJson),
-        'temp-high': weather.getHighTemp(weatherJson),
-        'temp-low': weather.getLowTemp(weatherJson),
+        'currentTemp': weather.getCurrentTemp(weatherJson),
+        'tempHigh': weather.getHighTemp(weatherJson),
+        'tempLow': weather.getLowTemp(weatherJson),
         'condition': weather.getConditions(weatherJson),
         'icon-url': `http://openweathermap.org/img/wn/${weather.getIcon(weatherJson)}@2x.png`
     }
