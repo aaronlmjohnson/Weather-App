@@ -11,19 +11,19 @@ const weatherDiv = (city, country, state='')=>{
     
     const _addContentToWeatherInfo = async ()=>{
         const weatherData = await weatherInfoObj(city, country, state);
-        console.log(weatherData.time)
-        
+
         document.querySelector('.current-temp-text').append(weatherData.currentTemp);
         document.querySelector('.condition-text').append(weatherData.condition);
         document.querySelector('.temp-high-text').append(`High ${weatherData.tempHigh}`);
         document.querySelector('.temp-low-text').append(`Low ${weatherData.tempLow}`);
 
-        _addLocationToWeatherInfo();
+        _addLocationAndTimeToWeatherInfo(weatherData.time);
+        _addIconToWeatherInfo(weatherData.iconUrl);
     }
 
-    const _addLocationToWeatherInfo = ()=>{
-        const location = `${city}, ${state === '' ? country : state}`
-        document.querySelector('.location-text').append(location);
+    const _addLocationAndTimeToWeatherInfo = (time)=>{
+        const locationAndTime = `${city}, ${state === '' ? country : state} As of ${time}`;
+        document.querySelector('.location-and-time-text').append(locationAndTime);
     }
 
     const _addIconToWeatherInfo = (url)=>{
