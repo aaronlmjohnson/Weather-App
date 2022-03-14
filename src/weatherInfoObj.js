@@ -1,7 +1,11 @@
 import weather from "./weather";
+import timeZoneAPI from "./timezoneAPI";
 
 const weatherInfoObj = async (city, country, state)=> {
     const weatherJson = await weather.dataForCity(city, country, state);
+ 
+    // const timeZoneData = await timeZoneAPI.getTimeZoneData(weatherJson.coord.lat, weatherJson.coord.lon);
+    // console.log(timeZoneData);
     weather.getIcon(weatherJson);
     return {
         'time': weather.getTimeOfRequest(weatherJson),
