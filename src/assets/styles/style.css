@@ -67,19 +67,26 @@ body {
 
 .weather {
 	border: 1px solid black;
-	display: flex;
+	display: grid;
+	grid-template-rows: 1fr 8fr;
 	width: 50%;
 	padding: 0 10px;
 }
 
+.location-and-time {
+	grid-row: 1;
+	grid-column: span 2;
+}
+
 .weather-info {
 
-
+	grid-row: 2;
 }
 
 .weather-icon-container {
 	margin-left: auto;
 	width: 200px;
+	grid-row: 2;
 }
 
 .weather-icon{
