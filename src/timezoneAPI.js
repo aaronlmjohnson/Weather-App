@@ -5,7 +5,6 @@ const timeZoneAPI = (()=>{
 
     const getTimeZoneData = async (lat, long) =>{
         const url = _setUrl(lat, long);
-
         const response = await fetch(url, {mode: 'cors'});
         const timezoneData = await response.json();
         return timezoneData;
