@@ -61,9 +61,14 @@ body {
 }
 
 #content {
-	display: flex;
+	/* display: flex;
 	justify-content: center;
-	margin: 100px;
+	margin: 100px; */
+}
+
+#navbar {
+	background: black;
+	height: 100px;
 }
 
 .weather {

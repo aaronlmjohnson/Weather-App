@@ -1,12 +1,13 @@
 import './assets/styles/style.css';
 import weatherDiv from './weatherDiv';
+import navBar from './navBar';
 
 const content = document.getElementById('content');
-const timeZoneDBKey = 'VCKXXXM1Y2IH'
 
 //const weatherContainer = weatherDiv('Mission Viejo', 'US', 'CA');
-const weatherContainer2 = weatherDiv('Fayetteville', 'US', 'AR');
+const weatherContainer2 = weatherDiv('London', 'UK', '');
 
+content.append(navBar);
 content.append(weatherContainer2);
 
 
