@@ -1,36 +1,17 @@
-import './assets/styles/style.css';
-import weatherDiv from './weatherDiv';
-import navBar from './navBar';
-import { div } from './dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const content = document.getElementById('content');
-const mainContent = div('main-content', true);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-const weatherContainer = weatherDiv('Mission Viejo', 'US', 'CA');
-
-mainContent.append(weatherContainer);
-
-content.append(navBar);
-content.append(mainContent);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
