@@ -1,26 +1,16 @@
-import {useState, useEffect } from 'react';
+import {useState } from 'react';
 import Axios from 'axios';
 
 const useLoadWeatherAPI = ()=>{
-    const API_KEY = 'ecb293383b7ae05cbf77b63954466b3c'; // move to environment variable
+    const API_KEY = 'ecb293383b7ae05cbf77b63954466b3c';
+    const [weatherData, setWeatherData] = useState([]);    
 
-    const [weatherData, setWeatherData] = useState([]);
-    const [location, setLocation] = useState([]);
-
-    const getLocation = (city, country, state) =>{
-        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city || ''}${state ? ',US-'+state : state},${country || ''}&limit=${1}&appid=${API_KEY}`
-        console.log(url)
-        Axios.get(url).then((response)=>{
-            setLocation(response.data);
-        });
+    const loadWeatherData = (city, country, state) =>{
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city || ''}${state ? ',US-'+state : ''},${country || ''}&limit=${5}&appid=${API_KEY}`;
+        Axios.get(url).then((response)=>setWeatherData(response.data));        
     };
 
-    const getWeather = (city, country, state) => {
-       const {lat, lon} = getLocation(city, country, state)[0];
-       console.log(lat, lon);
-    }
-
-    return {weatherData, getWeather}
+    return {weatherData, loadWeatherData}
 
 }
 

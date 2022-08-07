@@ -4,13 +4,13 @@ import useLoadLocationAPI from './components/useLoadLocationAPI';
 
 function App() {
 
-  const { weatherData, getWeather } = useLoadWeatherAPI();
-  const { location, getLocationData } = useLoadLocationAPI();
+  const { weatherData, loadWeatherData } = useLoadWeatherAPI();
+  const { locationData, loadLocationData } = useLoadLocationAPI();
 
   return (
     <div className="App">
       Weather App
-      <button onClick={()=>getLocationData('Fayetteville', 'US', 'AR')}>click</button>
+      <button onClick={()=>loadLocationData('London')}>click</button>
     </div>
   );
 }
