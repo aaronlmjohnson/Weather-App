@@ -51,20 +51,3 @@ const useLoadLocationAPI = ()=>{
 
 export default useLoadLocationAPI;
 
-//types of location queries
-// city: Fayetteville
-// city with state: Fayetteville, AR or Fayetteville AR
-// city with country: Fayetteville, US or Fayetteville US
-// Zipcode: 72701 Fayetteville 72701
-
-// parseLocationQuery 
-// take the query and split it by condoms and spaces
-// if there is a Zipcode
-//  search by Zipcode
-// if there is only a city, add to url and return 
-// If there is a city and state code
-//  check to see if the code is a state code
-//     if so then add to url as state and return
-// if there is a city and country code 
-    // check and see if country code is a state
-        //if it isn't then add to url as country and return
