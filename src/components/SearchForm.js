@@ -1,6 +1,6 @@
 import "./Navbar.css";
 
-const LocationSearchForm = ()=>{
+const SearchForm = ()=>{
 
     return (
         <form id="location-search-form">
@@ -10,4 +10,4 @@ const LocationSearchForm = ()=>{
     );
 }
 
-export default LocationSearchForm;
+export default SearchForm;
