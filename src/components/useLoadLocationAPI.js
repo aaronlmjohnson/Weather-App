@@ -8,8 +8,7 @@ const useLoadLocationAPI = ()=>{
 
     const loadLocationData = (query) =>{
         const url  = locationURLBuilder(parseLocationQuery(query));
-        console.log(url);
-        Axios.get(url).then((response)=>console.log(response));
+        Axios.get(url).then((response)=>setLocationData(response.data));
     };
 
     const parseLocationQuery = (str)=>{
