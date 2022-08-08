@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <button onClick={(e)=> loadLocationData("Fayetteville, US")}>click</button>
       <Navbar locations={["Fayetteville,AR", "Fayetteville,WV", "Fayetteville,GA", "Fayetteville,NC"]}/>
     </div>
   );
