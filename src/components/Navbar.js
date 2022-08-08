@@ -1,11 +1,11 @@
 import SearchForm from "./SearchForm";
 import "./Navbar.css";
 
-const Navbar = ()=>{
-
+const Navbar = (props)=>{
+    const { locations } = props;
     return (
         <nav id="navbar">
-            <SearchForm />
+            <SearchForm locations={locations}/>
         </nav>
     );
 }

@@ -1,11 +1,10 @@
 import "./DropDownMenu.css";
 
-const DropDownMenu = ()=>{
+const DropDownMenu = (props)=>{
+    const { locations } = props;
     return (
         <ul className="drop-down-menu">
-            <li><a href="#">Thing 1</a></li>
-            <li><a href="#">Thing 2</a></li>
-            <li><a href="#">Thing 3</a></li>
+            {locations.map((location)=> <li>{location}</li>)}
         </ul>
     );
 }
