@@ -8,13 +8,12 @@ function App() {
   const { locationData, loadLocationData } = useLoadLocationAPI();
 
   const handleChange = (e)=>{
-    console.log(e.target.value);
+    loadLocationData(e.target.value); //TODO: fix this lolololol
   }
 
   return (
     <div className="App">
-      <button onClick={(e)=> loadLocationData("Fayetteville, US")}>click</button>
-      <Navbar locations={["Fayetteville,AR", "Fayetteville,WV", "Fayetteville,GA", "Fayetteville,NC"]}/>
+      <Navbar locations={locationData} handleChange={handleChange}/>
     </div>
   );
 }
