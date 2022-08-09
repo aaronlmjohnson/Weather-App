@@ -13,9 +13,10 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar locations={locationData} handleChange={handleChange}/>
+      <Navbar locations={locationData} handleChange={handleChange} />
     </div>
   );
 }
 
 export default App;
+

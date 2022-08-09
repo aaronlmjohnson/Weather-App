@@ -2,7 +2,7 @@ const DropDownLink = (props)=>{
     const { location } = props;
     return (
         <li>
-            <a href={`/place`}>
+            <a href={`/${location.name}`}>
                 {`${location.name}, ${location.state || ''}, ${location.country}`}
             </a>
         </li>
