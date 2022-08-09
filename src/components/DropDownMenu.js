@@ -1,11 +1,20 @@
 import "./DropDownMenu.css";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import DropDownLink from "./DropDownLink";
+
 
 const DropDownMenu = (props)=>{
     const { locations } = props;
     return (
-        <ul className="drop-down-menu">
-            {locations && locations.map((location)=> <li><a href="#">{`${location.name}, ${location.state || ''}, ${location.country}`}</a></li>)}
-        </ul>
+        //<BrowserRouter>
+            <ul className="drop-down-menu">
+                {/* <Routes> */}
+                    {locations && locations.map((location)=> {
+                        return <DropDownLink location={location}/>
+                    })}
+                {/* </Routes> */}
+            </ul>
+        // </BrowserRouter>
     );
 }
 
