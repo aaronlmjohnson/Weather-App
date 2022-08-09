@@ -6,7 +6,7 @@ const useLoadWeatherAPI = ()=>{
     const [weatherData, setWeatherData] = useState([]);    
 
     const loadWeatherData = (lat, lon) =>{
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`;
         Axios.get(url).then((response)=>setWeatherData(response.data));    
     };
 

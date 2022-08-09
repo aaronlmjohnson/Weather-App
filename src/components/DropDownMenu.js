@@ -2,11 +2,11 @@ import "./DropDownMenu.css";
 import DropDownLink from "./DropDownLink";
 
 const DropDownMenu = (props)=>{
-    const { locations } = props;
+    const { locations, loadWeatherData } = props;
     return (
         <ul className="drop-down-menu">
-            {locations && locations.map((location)=> {
-                return <DropDownLink location={location}/> 
+            {locations && locations.map((location, i)=> {
+                return <DropDownLink location={location} loadWeatherData={loadWeatherData} key={i}/> 
             })}
         </ul>
     );
