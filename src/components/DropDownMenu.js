@@ -2,10 +2,9 @@ import "./DropDownMenu.css";
 
 const DropDownMenu = (props)=>{
     const { locations } = props;
-    console.log(locations);
     return (
         <ul className="drop-down-menu">
-            {locations && locations.map((location)=> <li>{`${location.name}, ${location.state || ''}, ${location.country}`}</li>)}
+            {locations && locations.map((location)=> <li><a href="#">{`${location.name}, ${location.state || ''}, ${location.country}`}</a></li>)}
         </ul>
     );
 }

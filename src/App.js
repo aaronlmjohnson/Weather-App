@@ -8,7 +8,7 @@ function App() {
   const { locationData, loadLocationData } = useLoadLocationAPI();
 
   const handleChange = (e)=>{
-    loadLocationData(e.target.value); //TODO: fix this lolololol
+    loadLocationData(e.target.value); 
   }
 
   return (

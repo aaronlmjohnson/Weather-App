@@ -1,0 +1,7 @@
+.drop-down-menu{
+    display: relative;
+    background: white;
+    border: 1px solid black;
+    width: 10%;
+    list-style: none;
+}
