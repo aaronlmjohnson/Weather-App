@@ -1,4 +1,21 @@
+:root {
+    --search-bar-width: 500px;
+    --search-bar-height: 50px;
+}
 #navbar{
     border: 2px solid black;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#location-search-form{
+    position:relative;
+
+}
+
+#location-search-bar {
+    width: var(--search-bar-width);
+    padding: 0;
 }

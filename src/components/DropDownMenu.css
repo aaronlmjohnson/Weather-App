@@ -1,7 +1,11 @@
 .drop-down-menu{
-    display: relative;
+    position: absolute;
     background: white;
-    border: 1px solid black;
-    width: 10%;
+    width: calc(var(--search-bar-width) + 2px);
     list-style: none;
+    border: 1px solid black;
+}
+
+.hidden {
+    display: none;
 }

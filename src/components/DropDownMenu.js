@@ -4,7 +4,7 @@ import DropDownLink from "./DropDownLink";
 const DropDownMenu = (props)=>{
     const { locations, loadWeatherData } = props;
     return (
-        <ul className="drop-down-menu">
+        <ul className="drop-down-menu hidden" >
             {locations && locations.map((location, i)=> {
                 return <DropDownLink location={location} loadWeatherData={loadWeatherData} key={i}/> 
             })}
