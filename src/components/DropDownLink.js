@@ -2,7 +2,7 @@ const DropDownLink = (props)=>{
     const { location, loadWeatherData } = props;
     return (
         <li>
-            <a href={`/${location.name}`} onClick={(e)=> {
+            <a href={`/`} onClick={(e)=> {
                 e.preventDefault();
                 loadWeatherData(location.lat, location.lon);
             }}>

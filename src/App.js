@@ -2,6 +2,7 @@ import './App.css';
 import useLoadWeatherAPI from './components/useLoadWeatherAPI';
 import useLoadLocationAPI from './components/useLoadLocationAPI';
 import Navbar from './components/Navbar';
+import WeatherPage from './components/WeatherPage';
 
 function App() {
   const { weatherData, loadWeatherData } = useLoadWeatherAPI();
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Navbar locations={locationData} handleChange={handleChange} loadWeatherData={loadWeatherData}/>
+      <WeatherPage weatherData={weatherData} />
     </div>
   );
 }
