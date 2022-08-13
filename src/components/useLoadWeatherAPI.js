@@ -7,8 +7,11 @@ const useLoadWeatherAPI = ()=>{
 
     const loadWeatherData = (lat, lon) =>{
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`;
-        Axios.get(url).then((response)=>setWeatherData(response.data));    
+        Axios.get(url).then((response)=>setWeatherData(response.data));
+        console.log(weatherData);    
     };
+
+    
 
     return {weatherData, loadWeatherData}
 

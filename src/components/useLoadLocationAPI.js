@@ -13,7 +13,7 @@ const useLoadLocationAPI = ()=>{
 
     const parseLocationQuery = (str)=>{
         const states = USStateCodes();
-        const splitStr = str.split(/[ ,]+/); 
+        const splitStr = str.split(/[,l]+/); 
         const containsZipcode = splitStr.some((e)=> e.match(/^\d{5}$/));
 
         if(containsZipcode) 
@@ -45,7 +45,7 @@ const useLoadLocationAPI = ()=>{
         }).join('');
     }
 
-    return {locationData, loadLocationData}
+    return {locationData, loadLocationData, setLocationData}
 
 }
 
