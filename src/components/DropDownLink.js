@@ -4,7 +4,7 @@ const DropDownLink = (props)=>{
         <li>
             <a href={`/`} onClick={(e)=> {
                 e.preventDefault();
-                loadWeatherData(location.lat, location.lon);
+                loadWeatherData(location.lat, location.lon, 'current');
             }}>
                 {`${location.name}, ${location.state || ''}, ${location.country}`}
             </a>
