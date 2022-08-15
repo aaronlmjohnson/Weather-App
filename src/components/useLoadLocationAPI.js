@@ -45,7 +45,7 @@ const useLoadLocationAPI = ()=>{
         }).join('');
     }
 
-    return {locationData, loadLocationData, setLocationData}
+    return {locationData, loadLocationData}
 
 }
 

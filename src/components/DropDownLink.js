@@ -1,10 +1,10 @@
 const DropDownLink = (props)=>{
-    const { location, currentAndFiveDay } = props;
+    const { location, handleLocationClick } = props;
     return (
         <li>
             <a href={`/`} onClick={(e)=> {
                 e.preventDefault();
-                currentAndFiveDay(location.lat, location.lon);
+                handleLocationClick(location);
             }}>
                 {`${location.name}, ${location.state || ''}, ${location.country}`}
             </a>

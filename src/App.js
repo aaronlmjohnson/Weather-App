@@ -7,8 +7,9 @@ import { useState } from 'react';
 
 function App() {
   const { weatherData, currentAndFiveDay } = useLoadWeatherAPI();
-  const { locationData, loadLocationData, setLocationData } = useLoadLocationAPI();
-  const [hideDropdown , setHideDropdown] = useState(false)
+  const { locationData, loadLocationData } = useLoadLocationAPI();
+  const [hideDropdown , setHideDropdown] = useState(false);
+  const [weatherAndLoc, setWeatherAndLoc] = useState({});
 
   const handleChange = (e)=>{
     setHideDropdown(e.target.value? false : true);
@@ -16,9 +17,19 @@ function App() {
     loadLocationData(e.target.value); 
   }
 
+  const handleLocationClick = (location)=>{
+    currentAndFiveDay(location.lat, location.lon);
+    setWeatherAndLoc({
+      location: location,
+      current: weatherData[0],
+      fiveday: weatherData[1]
+    });
+    console.log(weatherAndLoc);
+  }
+
   return (
     <div className="App">
-      <Navbar locations={locationData} handleChange={handleChange} currentAndFiveDay={currentAndFiveDay} hideDropdown={hideDropdown}/>
+      <Navbar locations={locationData} handleChange={handleChange} handleLocationClick = {handleLocationClick} hideDropdown={hideDropdown}/>
       <WeatherPage weatherData={weatherData} />
     </div>
   );
