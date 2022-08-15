@@ -6,7 +6,7 @@ import WeatherPage from './components/WeatherPage';
 import { useState } from 'react';
 
 function App() {
-  const { weatherData, loadWeatherData } = useLoadWeatherAPI();
+  const { weatherData, currentAndFiveDay } = useLoadWeatherAPI();
   const { locationData, loadLocationData, setLocationData } = useLoadLocationAPI();
   const [hideDropdown , setHideDropdown] = useState(false)
 
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar locations={locationData} handleChange={handleChange} loadWeatherData={loadWeatherData} hideDropdown={hideDropdown}/>
+      <Navbar locations={locationData} handleChange={handleChange} currentAndFiveDay={currentAndFiveDay} hideDropdown={hideDropdown}/>
       <WeatherPage weatherData={weatherData} />
     </div>
   );
